@@ -28,8 +28,6 @@ class App extends Component {
   clickedHouse = id => {
     // if they mis click but have a higher score
     if(this.state.clicked.includes(id) && (this.state.score>=this.state.topScore)) {
-      console.log(id);
-      console.log(clicked);
       this.setState({
         topScore: this.state.score,
         score: 0,
@@ -40,8 +38,6 @@ class App extends Component {
     }
     // if they misclick but don't have a higher score
     else if (this.state.clicked.includes(id) && (this.state.score<this.state.topScore)) {
-      console.log(id);
-      console.log(clicked);
       this.setState({
         score: 0,
         houseOrder: this.shuffle(this.state.houseOrder),
@@ -51,8 +47,6 @@ class App extends Component {
     }
     // if chose correctly and score is greater than topScore
     else if (!this.state.clicked.includes(id) && (this.state.score>=this.state.topScore)) {
-      clicked.push(id);
-      console.log(clicked);
       this.setState({
         score: this.state.score + 1,
         topScore: this.state.score + 1,
@@ -62,8 +56,6 @@ class App extends Component {
     }
     // if chose correctly and score is less than/equal to topScore
     else if (!this.state.clicked.includes(id) && (this.state.score<this.state.topScore)) {
-      clicked.push(id);
-      console.log(clicked);
       this.setState({
         score: this.state.score + 1,
         houseOrder: this.shuffle(this.state.houseOrder),
